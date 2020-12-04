@@ -9,7 +9,7 @@ const useLocalStorage = (key, initialValue) => {
 
   const setValue = value => {
     setStoredVals(value);
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, value);
   };
   return [storedVals, setValue];
 };
@@ -23,7 +23,12 @@ const useForm = formValues => {
       [e.target.name]: e.target.value
     });
   };
-  return [setValues, values, onChange];
+  const clearForm = e => {
+    e.preventDefault();
+    setValues(formValues);
+  };
+
+  return [setValues, values, onChange, clearForm];
 };
 
 export default useForm;
