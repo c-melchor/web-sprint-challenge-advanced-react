@@ -12,7 +12,7 @@ const initialValues = {
 
 const CheckoutForm = props => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, onChange] = useForm();
+  const [setValues, formValues, onChange] = useForm(initialValues);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -22,34 +22,42 @@ const CheckoutForm = props => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h2>Checkout Form</h2>
+        <h2 data-testid="title">Checkout Form</h2>
         <label>
           First Name:
           <input
             name="firstName"
-            value={values.firstName}
+            value={formValues.firstName}
             onChange={onChange}
           />
         </label>
         <label>
           Last Name:
-          <input name="lastName" value={values.lastName} onChange={onChange} />
+          <input
+            name="lastName"
+            value={formValues.lastName}
+            onChange={onChange}
+          />
         </label>
         <label>
           Address:
-          <input name="address" value={values.address} onChange={onChange} />
+          <input
+            name="address"
+            value={formValues.address}
+            onChange={onChange}
+          />
         </label>
         <label>
           City:
-          <input name="city" value={values.city} onChange={onChange} />
+          <input name="city" value={formValues.city} onChange={onChange} />
         </label>
         <label>
           State:
-          <input name="state" value={values.state} onChange={onChange} />
+          <input name="state" value={formValues.state} onChange={onChange} />
         </label>
         <label>
           Zip:
-          <input name="zip" value={values.zip} onChange={onChange} />
+          <input name="zip" value={formValues.zip} onChange={onChange} />
         </label>
         <button>Checkout</button>
       </form>
@@ -63,11 +71,11 @@ const CheckoutForm = props => {
           <br />
           <br />
           <p>
-            {values.firstName} {values.lastName}
+            {formValues.firstName} {formValues.lastName}
           </p>
-          <p>{values.address}</p>
+          <p>{formValues.address}</p>
           <p>
-            {values.city}, {values.state} {values.zip}
+            {formValues.city}, {formValues.state} {formValues.zip}
           </p>
         </div>
       )}

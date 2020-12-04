@@ -3,14 +3,15 @@ import { useState } from "react";
 
 const useLocalStorage = (key, initialValue) => {
   const [storedVals, setStoredVals] = useState(() => {
-    if (localStorage.getItem(key)) {
-      return JSON.parse(localStorage.getItem(key));
-    } else {
-      localStorage.setItem(key, JSON.stringify(initialValue));
-      return initialValue;
-    }
+    const items = localStorage.getItem(key);
+    return items ? JSON.parse(items) : initialValue;
   });
-  return [storedVals, setStoredVals];
+
+  const setValue = value => {
+    setStoredVals(value);
+    localStorage.setItem(key, JSON.stringify(value));
+  };
+  return [storedVals, setValue];
 };
 
 const useForm = formValues => {
@@ -22,7 +23,7 @@ const useForm = formValues => {
       [e.target.name]: e.target.value
     });
   };
-  return [values, onChange];
+  return [setValues, values, onChange];
 };
 
 export default useForm;
