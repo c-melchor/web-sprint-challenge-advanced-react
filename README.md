@@ -29,14 +29,26 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain how to build stateful class components.
+   describe the custom hooks built
 
-2. Describe the different phases of the component lifecycle.
+2) Describe the different phases of the component lifecycle.
+   mounting - putting elements into the DOM
+   render - outputting HTML into the DOM
+   updating- changes in state that update whatever is on the DOM
 
-3. Demonstrate an understanding of class component lifecycle methods.
+3) Demonstrate an understanding of class component lifecycle methods.
 
-4. Define stateful logic.
+4) Define stateful logic.
+   code that can be changed with user interaction
 
-5. Describe how to test a React component with React Testing Library.
+5) Describe how to test a React component with React Testing Library.
+
+- need to import the testing tools.
+- need to set up a test func
+  -i.e. test("example name", ()=>{
+  test code goes in here
+  })
+  -will need to render the component first, then grab elements in order to test
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
