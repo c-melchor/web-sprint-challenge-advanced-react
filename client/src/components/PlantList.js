@@ -2,8 +2,26 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default class PlantList extends Component {
+  constructor() {
+    super();
+    this.state = { plants: [] };
+  }
+
   // add state with a property called "plants" - initialize as an empty array
 
+  componentDidMount() {
+    axios
+      .get("http://localhost:3333/plants")
+      .then(res => {
+        const plantArr = res.data.plantsData;
+        this.setState({
+          plants: plantArr
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   // when the component mounts:
   //   - fetch data from the server endpoint - http://localhost:3333/plants
   //   - set the returned plants array to this.state.plants
@@ -12,7 +30,7 @@ export default class PlantList extends Component {
   render() {
     return (
       <main className="plant-list">
-        {this.state?.plants?.map((plant) => (
+        {this.state?.plants?.map(plant => (
           <div className="plant-card" key={plant.id}>
             <img className="plant-image" src={plant.img} alt={plant.name} />
             <div className="plant-details">
