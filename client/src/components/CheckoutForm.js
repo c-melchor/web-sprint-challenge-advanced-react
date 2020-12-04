@@ -77,7 +77,7 @@ const CheckoutForm = props => {
             onChange={onChange}
           />
         </label>
-        <button data-testid="submit">Checkout</button>
+        <button>Checkout</button>
       </form>
 
       {showSuccessMessage && (

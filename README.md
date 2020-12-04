@@ -78,12 +78,12 @@ Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begi
 
 **Starting your test runner**
 
-- [ ] In the final terminal window, make sure you are in the `client` folder still
-- [ ] Start the test runner with `npm test` (I recommend doing this only when you're testing - any change in your app will make the tests run, and that could eat up your computer power)
+- [x] In the final terminal window, make sure you are in the `client` folder still
+- [x] Start the test runner with `npm test` (I recommend doing this only when you're testing - any change in your app will make the tests run, and that could eat up your computer power)
 
 **Commit and Push OFTEN!**
 
-- [ ] Implement the project on this Branch, **committing progress & changes often.**
+- [x] Implement the project on this Branch, **committing progress & changes often.**
 - [ ] Push commits: `git push origin master`, or, if working on your own branch: git push origin <firstName-lastName>`.
 
 ### Task 2: Project Requirements
